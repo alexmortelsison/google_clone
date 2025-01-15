@@ -7,9 +7,9 @@ import React from "react";
 
 export default function Home() {
   return (
-    <div>
+    <div className="h-screen">
       <HomeHeader />
-      <div className="justify-center flex flex-col items-center mt-64">
+      <div className="justify-center flex flex-col items-center mt-44 sm:mt-64">
         <Link href={"/"}>
           <Image
             src={
