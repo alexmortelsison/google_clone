@@ -1,7 +1,7 @@
 "use client";
-import { CameraIcon, Mic, SearchIcon } from "lucide-react";
-import { useRouter } from "next/navigation";
 import React, { useState } from "react";
+import { CameraIcon, MicIcon, SearchIcon } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 export default function HomeSearch() {
   const [input, setInput] = useState("");
@@ -12,7 +12,7 @@ export default function HomeSearch() {
   ) => {
     e.preventDefault();
     if (!input.trim()) return;
-    router.push(`/search/web?searchTerm=${input}`);
+    router.push(`/search/web?search=${input}`);
   };
   const randomSearch = async () => {
     setRandomSearchLoading(true);
@@ -20,24 +20,25 @@ export default function HomeSearch() {
       .then((res) => res.json())
       .then((data) => data[0]);
     if (!response) return;
-    router.push(`search/web?searchTerm=${response}`);
+    router.push(`/search/web?search=${response}`);
+    setRandomSearchLoading(false);
   };
   return (
     <>
       <form
         onSubmit={handleSubmit}
-        className="flex border max-w-[90%] w-full lg:max-w-xl mx-auto rounded-full p-4 mt-5 px-6 hover:shadow-lg focus-within:shadow-lg"
+        className="flex border w-full max-w-[90%] md:w-4/5 mx-auto lg:max-w-xl px-8 rounded-full py-4 mt-6 hover:shadow-lg shadow-gray-400 focus-within:shadow-lg"
       >
         <SearchIcon />
         <input
           onChange={(e) => setInput(e.target.value)}
           type="text"
-          className="w-full outline-none px-4"
+          className="w-full px-4 outline-none bg-transparent"
         />
-        <Mic />
+        <MicIcon />
         <CameraIcon className="ml-4" />
       </form>
-      <div className="space-x-6 mt-8">
+      <div className="mt-8 space-x-8">
         <button className="btn" onClick={handleSubmit}>
           Google Search
         </button>
@@ -45,10 +46,6 @@ export default function HomeSearch() {
           {randomSearchLoading ? "Loading..." : "I'm Feeling Lucky"}
         </button>
       </div>
-      <p className="text-sm mt-8">
-        Google offered in:
-        <span className="text-blue-500 cursor-pointer"> 日本語</span>
-      </p>
     </>
   );
 }

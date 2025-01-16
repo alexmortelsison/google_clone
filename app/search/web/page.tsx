@@ -1,5 +1,5 @@
 import React from "react";
 
-export default function WebPage() {
-  return <div>WebPage</div>;
+export default function WebSearchPage() {
+  return <div>WebSearchPage</div>;
 }

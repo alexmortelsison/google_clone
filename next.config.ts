@@ -13,6 +13,11 @@ const nextConfig: NextConfig = {
         hostname: "www.google.co.uk",
         pathname: "**",
       },
+      {
+        protocol: "https",
+        hostname: "upload.wikimedia.org",
+        pathname: "**",
+      },
     ],
   },
 };

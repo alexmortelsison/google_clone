@@ -1,5 +1,5 @@
 import React from "react";
 
-export default function ImagePage() {
-  return <div>ImagePage</div>;
+export default function ImageSearchPage() {
+  return <div>ImageSearchPage</div>;
 }
