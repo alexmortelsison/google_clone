@@ -14,6 +14,6 @@ export default function CountryLookUp() {
       setCountry(response);
     };
     getCountry();
-  }, []);
-  return <div className="mb-4 px-4 sm:px-8">{country}</div>;
+  });
+  return <div>{country}</div>;
 }

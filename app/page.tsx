@@ -1,15 +1,14 @@
 import HomeHeader from "@/components/HomeHeader";
 import HomeSearch from "@/components/HomeSearch";
-import { CameraIcon, Mic, SearchIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
 export default function Home() {
   return (
-    <div className="h-screen">
+    <div>
       <HomeHeader />
-      <div className="justify-center flex flex-col items-center mt-44 sm:mt-64">
+      <div className="flex justify-center flex-col items-center mt-44 lg:mt-64">
         <Link href={"/"}>
           <Image
             src={
@@ -17,14 +16,10 @@ export default function Home() {
             }
             alt={"logo"}
             width={300}
-            height={100}
+            height={120}
           />
         </Link>
         <HomeSearch />
-        <p className="text-sm mt-8">
-          Google offered in:
-          <span className="ml-1 text-blue-500 hover:underline">日本語</span>
-        </p>
       </div>
     </div>
   );

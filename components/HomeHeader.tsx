@@ -1,22 +1,20 @@
-import { Grip } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 import Avatar from "./Avatar";
+import { Grip } from "lucide-react";
+import HomeSearch from "./HomeSearch";
 
 export default function HomeHeader() {
   return (
-    <header className="flex items-center space-x-4 justify-end px-4 py-2 text-sm font-semibold">
-      <Link href={"https://mail.google.com"} className="link text-gray-500">
+    <div className="flex justify-end p-2 space-x-4 items-center mr-2 text-sm">
+      <Link href={"https://mail.google.com"} className="link">
         Gmail
       </Link>
-      <Link href={"https://image.google.com"} className="link text-gray-500">
+      <Link href={"https://images.google.com"} className="link">
         Images
       </Link>
-      <Grip
-        size={40}
-        className="hover:bg-gray-200 rounded-full p-2 text-gray-500"
-      />
-      <Avatar />
-    </header>
+      <Grip size={40} className="hover:bg-gray-200 p-2 rounded-full" />
+      <Avatar size={40} />
+    </div>
   );
 }

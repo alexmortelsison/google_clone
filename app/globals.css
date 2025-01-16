@@ -4,9 +4,9 @@
 
 @layer components {
   .link {
-    @apply hover:underline;
+    @apply hover:underline text-gray-800;
   }
   .btn {
-    @apply bg-gray-100 px-4 py-2 rounded-lg mt-6 border border-transparent hover:border-gray-200;
+    @apply bg-gray-100 px-4 py-2 rounded-lg hover:shadow-md border border-transparent hover:border-gray-300;
   }
 }
