@@ -1,7 +1,7 @@
 "use client";
-import React, { useState } from "react";
 import { CameraIcon, MicIcon, SearchIcon } from "lucide-react";
 import { useRouter } from "next/navigation";
+import React, { useState } from "react";
 
 export default function HomeSearch() {
   const [input, setInput] = useState("");
@@ -11,38 +11,40 @@ export default function HomeSearch() {
     e: React.FormEvent<HTMLFormElement> | React.MouseEvent<HTMLButtonElement>
   ) => {
     e.preventDefault();
-    if (!input.trim()) return;
-    router.push(`/search/web?search=${input}`);
+    if (!input.trim) return;
+    router.push(`/search/web?searchTerm=${input}`);
   };
   const randomSearch = async () => {
     setRandomSearchLoading(true);
-    const response = await fetch(`https://random-word-api.herokuapp.com/word`)
+    const response = await fetch(
+      `https://random-word-api.vercel.app/api?words=100`
+    )
       .then((res) => res.json())
       .then((data) => data[0]);
     if (!response) return;
-    router.push(`/search/web?search=${response}`);
+    router.push(`/search/web?searchTerm=${response}`);
     setRandomSearchLoading(false);
   };
   return (
     <>
       <form
         onSubmit={handleSubmit}
-        className="flex border w-full max-w-[90%] md:w-4/5 mx-auto lg:max-w-xl px-8 rounded-full py-4 mt-6 hover:shadow-lg shadow-gray-400 focus-within:shadow-lg"
+        className="flex w-full border max-w-[90%] md:h-4/5 lg:max-w-xl mt-8 rounded-full px-5 py-3 hover:shadow-lg focus-within:shadow-md"
       >
         <SearchIcon />
         <input
           onChange={(e) => setInput(e.target.value)}
           type="text"
-          className="w-full px-4 outline-none bg-transparent"
+          className="w-full flex px-2 outline-none"
         />
         <MicIcon />
-        <CameraIcon className="ml-4" />
+        <CameraIcon />
       </form>
       <div className="mt-8 space-x-8">
-        <button className="btn" onClick={handleSubmit}>
+        <button onClick={handleSubmit} className="btn">
           Google Search
         </button>
-        <button className="btn" onClick={randomSearch}>
+        <button onClick={randomSearch} className="btn">
           {randomSearchLoading ? "Loading..." : "I'm Feeling Lucky"}
         </button>
       </div>
