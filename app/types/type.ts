@@ -1,3 +1,0 @@
-interface SearchResults {
-  title: string;
-}

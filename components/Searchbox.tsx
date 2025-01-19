@@ -16,17 +16,17 @@ export default function Searchbox() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="border rounded-full max-w-3xl ml-4 flex px-4 py-2 md:py-1 hover:shadow-md focus-within:shadow-md"
+      className="flex border rounded-full max-w-2xl p-2 ml-4 hover:shadow-lg focus-within:shadow-md"
     >
       <input
         onChange={(e) => setInput(e.target.value)}
         type="text"
-        className="outline-none bg-transparent w-full px-4"
+        className="border-transparent w-full outline-none px-4"
       />
-      <div className="flex space-x-4 items-center">
+      <div className="flex space-x-4 items-center pr-2">
         <X onClick={() => setInput("")} />
         <MicIcon size={38} className="border-l pl-4 hidden md:inline-flex" />
-        <CameraIcon className="hidden md:inline-flex" />
+        <CameraIcon className="mr-2 hidden md:inline-flex" />
       </div>
     </form>
   );

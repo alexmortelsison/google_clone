@@ -1,5 +1,4 @@
 "use client";
-import { count } from "console";
 import React, { useEffect, useState } from "react";
 
 export default function CountryLookUp() {
@@ -16,5 +15,6 @@ export default function CountryLookUp() {
     };
     getCountry();
   });
+
   return <div>{country}</div>;
 }

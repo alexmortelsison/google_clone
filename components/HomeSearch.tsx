@@ -11,7 +11,7 @@ export default function HomeSearch() {
     e: React.FormEvent<HTMLFormElement> | React.MouseEvent<HTMLButtonElement>
   ) => {
     e.preventDefault();
-    if (!input.trim) return;
+    if (!input) return;
     router.push(`/search/web?searchTerm=${input}`);
   };
   const randomSearch = async () => {
@@ -25,22 +25,23 @@ export default function HomeSearch() {
     router.push(`/search/web?searchTerm=${response}`);
     setRandomSearchLoading(false);
   };
+
   return (
     <>
       <form
         onSubmit={handleSubmit}
-        className="flex w-full border max-w-[90%] md:h-4/5 lg:max-w-xl mt-8 rounded-full px-5 py-3 hover:shadow-lg focus-within:shadow-md"
+        className="flex border rounded-full mt-8 w-4/5 md:max-w-2xl py-4 px-6 hover:shadow-lg focus-within:shadow-md"
       >
         <SearchIcon />
         <input
           onChange={(e) => setInput(e.target.value)}
           type="text"
-          className="w-full flex px-2 outline-none"
+          className="border-transparent w-full outline-none px-4 items-center"
         />
         <MicIcon />
-        <CameraIcon />
+        <CameraIcon className="ml-4" />
       </form>
-      <div className="mt-8 space-x-8">
+      <div className="space-x-8 mt-8">
         <button onClick={handleSubmit} className="btn">
           Google Search
         </button>
